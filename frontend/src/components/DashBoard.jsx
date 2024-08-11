@@ -11,7 +11,7 @@ const Dashboard = ({ setBannerData }) => {
     useEffect(() => {
         const fetchBannerData = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/api/banner');
+                const response = await axios.get('https://banner-ozdm.onrender.com/api/banner');
                 const { visible, description, timer, link } = response.data;
                 setBannerVisible(visible);
                 setDescription(description);
@@ -29,7 +29,7 @@ const Dashboard = ({ setBannerData }) => {
         e.preventDefault();
         const updatedBanner = { visible: bannerVisible, description, timer, link };
         try {
-            await axios.post('http://localhost:5000/api/banner', updatedBanner);
+            await axios.post('https://banner-ozdm.onrender.com/api/banner', updatedBanner);
             setBannerData(updatedBanner); // Update the banner data in the parent component
             alert('Banner updated successfully!');
         } catch (error) {
